@@ -1,0 +1,15 @@
+%%[
+Set @JSON = '[{ "catalogId": "ENHEFG1", "productUrl": "https://hduitest.myrandf.com/p/ENHEFG1" }, { "catalogId": "ENPS125", "productUrl": "https://hduitest.myrandf.com/p/ENPS125" }, { "catalogId": "ENHEY15", "productUrl": "https://hduitest.myrandf.com/p/ENHEY15" }]'
+
+]%%
+%%{={{ }}=}%%
+
+{{.dataobject JSONVar type=variable source=@JSON maxrows=5}}
+     {{.data}}
+          {“target”:”@JSON”}
+     {{/data}}
+{{/dataobject}}
+{{#each JSONVar}}
+  CatalogId: {{catalogId}}
+  ProductUrl: {{productUrl}}
+{{/each}}
